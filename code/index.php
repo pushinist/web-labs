@@ -220,3 +220,14 @@ echo "\n";
 echo "<br>";
 echo "<hr> Task 15 <hr>";
 
+function printStringReturnNumber()
+{
+    echo "Если вы видите эту строчку, значит, где-то сработала одинокая функция, которая должна была вернуть какое-то числовое значение";
+    return 15;
+}
+// don't forget to rename all vars according to lowerCamelCase
+$myNum = printStringReturnNumber();
+echo "\n";
+echo "<br>";
+echo $myNum;
+
