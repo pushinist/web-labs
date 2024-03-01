@@ -447,5 +447,111 @@ foreach ($arr as $item) {
     $count++;
 }
 echo "Количество символов в массиве - $count, последний - ";
-echo $arr[$count-1]. ', предпоследий - ';
-echo $arr[$count-2];
+echo $arr[$count - 1] . ', предпоследий - ';
+echo $arr[$count - 2];
+
+echo "\n";
+echo "<br>";
+
+
+// тут я сдаюсь. очень странно, что в этом языке true интерпретируется как 1, а false - как пустая строка.
+// еще более странно, что (по крайней мере, как я искал) скастить эти 1 или пустую строку в полноценные true или false - нельзя.
+// простите, что оставил вывод именно как 1 или 0, а не как true ли false :(
+function moreThanTen(int|float $a, int|float $b): bool
+{
+    if (($a + $b) > 10) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+if (moreThanTen(6, 5)) {
+    echo 'true';
+}
+echo "\n";
+
+echo "<br>";
+
+function isEqual(int|float $a, int|float $b): bool
+{
+    if ($a == $b) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+if (isEqual(5, 5)) {
+    echo 'true';
+}
+
+echo "\n";
+echo "<br>";
+
+$test = 0;
+
+echo(($test == 0) ? 'верно' : '');
+
+echo "\n";
+echo "<br>";
+
+
+function sumOfDigits(int $number): int
+{
+    if ($number < 0) {
+        $number = abs($number);
+    }
+    $stringNumber = $number . '';
+    $sum = intval($stringNumber[0]);
+
+    for ($i = 1; $i < strlen($stringNumber); $i++) {
+        $sum += intval($stringNumber[$i]);
+    }
+    return $sum;
+}
+
+
+$age = rand(1, 1000);
+if (($age < 10) or ($age > 99)) {
+    echo "Число $age меньше 10 или больше 99";
+} else {
+    if (sumOfDigits($age) <= 9) {
+        echo 'Сумма цифр однозначна, ' . $age;
+    } else {
+        echo 'Сумма цифр двузначна ' . $age;
+    }
+}
+
+echo "\n";
+echo "<br>";
+
+$arr = array();
+$numberOfElementsInArray = rand(1, 5);
+
+for ($i = 0; $i < $numberOfElementsInArray; $i++) {
+    $arr[] = rand(1, 100);
+}
+
+foreach ($arr as $item) {
+    echo $item . ' ';
+}
+
+echo "\n";
+echo "<br>";
+
+$i = 0;
+$sum = 0;
+
+foreach ($arr as $item) {
+    $i += 1;
+    if ($i == 4) {
+        break;
+    }
+    $sum += $item;
+}
+if ($i == 3) {
+    echo 'Сработало условие: кол-во элементов в массиве равно 3, их сумма - ' . $sum;
+}
+
+
