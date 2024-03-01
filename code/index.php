@@ -335,3 +335,117 @@ function digitsCounter(int $number): int
 }
 
 echo digitsCounter(123456);
+
+echo "\n";
+echo "<br>";
+echo "<hr> Task 17 <hr>";
+
+function fillArrayByX(array &$array, int $numberOfX)
+{
+    for ($i = 1; $i <= $numberOfX; $i++) {
+        $array[] = str_repeat('x', $i);
+    }
+}
+
+$anotherOneArrayWhichImTiredToCount = array();
+fillArrayByX($anotherOneArrayWhichImTiredToCount, 10);
+foreach ($anotherOneArrayWhichImTiredToCount as $value) {
+    echo $value . ' ';
+}
+echo "\n";
+echo "<br>";
+
+function arrayFill($value, int $count): array
+{
+    $array = array();
+    for ($i = 0; $i < $count; $i++) {
+        $array[] = $value;
+    }
+    return $array;
+}
+
+$yetAnotherArrayWeHaveToFill = arrayFill('x', 5);
+foreach ($yetAnotherArrayWeHaveToFill as $item) {
+    echo $item . ' ';
+}
+
+echo "\n";
+echo "<br>";
+
+$_2DArray = array(
+    array(1, 2, 3),
+    array(4, 5),
+    array(6)
+);
+
+function countSumOfElementsIn2DArray(array $_2DArray): int
+{
+    $sum = 0;
+    foreach ($_2DArray as $array) {
+        foreach ($array as $item) {
+            $sum += $item;
+        }
+    }
+    return $sum;
+}
+
+echo countSumOfElementsIn2DArray($_2DArray);
+
+echo "\n";
+echo "<br>";
+
+$counter = 1;
+$arrayWhichIsSupposedToBe2D = array();
+for ($i = 0; $i < 3; $i++) {
+    $arrayWhichIsSupposedToBe2D[] = array();
+    for ($j = &$counter; $j < 10; $j++) {
+        $arrayWhichIsSupposedToBe2D[$i][] = $j;
+    }
+}
+
+foreach ($arrayWhichIsSupposedToBe2D as $array) {
+    foreach ($array as $item) {
+        echo $item . ', ';
+    }
+}
+
+echo "\n";
+echo "<br>";
+
+$arrayWithSomeNumbers = array(2, 5, 3, 9);
+
+$firstNumber = $arrayWithSomeNumbers[0] * $arrayWithSomeNumbers[1];
+$secondNumber = $arrayWithSomeNumbers[2] * $arrayWithSomeNumbers[3];
+$result = $firstNumber + $secondNumber;
+echo $result;
+
+echo "\n";
+echo "<br>";
+
+$user = array('name' => 'Maxim', 'surname' => 'Tsvetkov', 'patronymic' => 'Alexandrovich');
+//foreach ($user as $value) {
+//    echo $value . ' ';
+//}
+echo $user['surname'] . ' ' . $user['name'] . ' ' . $user['patronymic'];
+
+echo "\n";
+echo "<br>";
+
+$date = array('year' => 2024, 'month' => 3, 'day' => 1);
+$res = '';
+foreach ($date as $value) {
+    $res .= $value . '-';
+}
+echo rtrim($res, '-');
+
+echo "\n";
+echo "<br>";
+
+$arr = ['a', 'b', 'c', 'd', 'e']; // Полагая, что встроенными функциями пользоваться не стоит:
+$count = 0;
+foreach ($arr as $item) {
+    $count++;
+}
+echo "Количество символов в массиве - $count, последний - ";
+echo $arr[$count-1]. ', предпоследий - ';
+echo $arr[$count-2];
