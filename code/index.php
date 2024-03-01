@@ -568,3 +568,104 @@ for ($i = 1; $i < 21; $i++) {
     echo "\n";
     echo "<br>";
 }
+
+echo "\n";
+echo "<br>";
+echo "<hr> Task 20 <hr>";
+
+$arr = array();
+$numberOfElementsInArray = rand(1, 5);
+
+for ($i = 0; $i < $numberOfElementsInArray; $i++) {
+    $arr[] = rand(1, 100);
+}
+
+foreach ($arr as $item) {
+    echo $item . ' ';
+}
+
+echo "\n";
+echo "<br>";
+
+
+$arithmeticMean = array_sum($arr) / count($arr);
+echo $arithmeticMean;
+
+echo "\n";
+echo "<br>";
+
+// Первый способ посчитать от 1 до 100 - через рекурсию
+function calculateNumbersFrom1ToX(int $x): int
+{
+    if ($x == 1) {
+        return 1;
+    }
+    else {
+        return ($x + calculateNumbersFrom1ToX($x - 1));
+    }
+}
+
+// Второй - по формуле
+
+function anotherWayToCalculateNumbersFrom1ToX(int $x): int
+{
+    return $x*($x + 1) / 2;
+}
+
+// Сравним их оба, используя функцию, написанную ранее
+
+if (isEqual(calculateNumbersFrom1ToX(100), anotherWayToCalculateNumbersFrom1ToX(100))) {
+    echo 'Подсчеты оказались верны!';
+}
+
+echo "\n";
+echo "<br>";
+
+$arr = array();
+$numberOfElementsInArray = rand(1, 5);
+
+for ($i = 0; $i < $numberOfElementsInArray; $i++) {
+    $arr[] = rand(1, 100);
+}
+
+foreach ($arr as $item) {
+    echo $item . ' ';
+}
+
+echo "\n";
+echo "<br>";
+
+$sqrtArray = array_map('sqrt', $arr);
+
+foreach ($sqrtArray as $item) {
+    echo $item . ' ';
+}
+
+echo "\n";
+echo "<br>";
+
+$keys = range('a', 'z');
+$values = range(1, 26);
+$combinedAssociativeArray = array_combine($keys, $values);
+
+foreach ($combinedAssociativeArray as $key => $value) {
+    echo "Key: $key; Value: $value\n";
+}
+
+
+// Рекурсия же ведь за циклы не считается, верно? верно?....
+function countSumOfPairOfNumbers(string $number, $i = 0, $sum = 0): int
+{
+    $sum += intval(substr($number, 0, 2));
+    if (strlen($number) == 0) {
+        return $sum;
+    } else {
+        return countSumOfPairOfNumbers(substr($number, 2), 2, $sum);
+    }
+}
+
+echo "\n";
+echo "<br>";
+
+echo countSumOfPairOfNumbers('1234567890');
+
