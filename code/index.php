@@ -35,5 +35,15 @@ echo "Я потратил в этом месяце на $difference рубля �
 echo "\n";
 echo "<br>";
 
+$num_languages = 4;
+$months = 11;
+$days = $months * 16;
+$days_per_language = $days / $num_languages;
+echo "$days_per_language - примерно столько дней Мэг тратила для изучения каждого из 4 языков программирования, среди
+которых, по какой-то причине, не оказалось самого awesome - PHP.";
+
+echo "\n";
+echo "<br>";
+
 // Don't change the line below
 echo "\nYour order is: $very_bad_unclear_name";
