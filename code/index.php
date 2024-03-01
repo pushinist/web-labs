@@ -112,7 +112,7 @@ echo "<br>";
 
 $Summa = 0;
 $RandomArray = array(4, 2, 5, 19, 13, 0, 10);
-foreach ($RandomArray as &$value) {
+foreach ($RandomArray as $value) {
     $Summa += pow($value, 2);
 }
 echo sqrt($Summa) . " - это квадратный корень из суммы квадратов элементов массива (4, 2, 5, 19, 13, 0, 10)";
@@ -165,12 +165,12 @@ for ($i = 1; $i <= 10; $i++) {
 $NotOnlyPositiveArray = array(1, 2, -1, -2, 3, -3);
 $PositiveOnlyArray = array();
 echo "Изначальный массив - ( ";
-foreach ($NotOnlyPositiveArray as &$value) {
+foreach ($NotOnlyPositiveArray as $value) {
     echo $value . " ";
 }
 echo ").";
 
-foreach ($NotOnlyPositiveArray as &$value) {
+foreach ($NotOnlyPositiveArray as $value) {
     $PositiveOnlyArray[] = abs($value);
 }
 unset($value); // разрываем ссылку на $value, чтобы потом не произошлой какой-то гадости
@@ -197,7 +197,7 @@ for ($i = 1; $i <= ceil(sqrt($RandomNumber)); $i++) {
 }
 
 echo "Делители числа $RandomNumber - ";
-foreach ($DividersOfRandomNumber as &$value) {
+foreach ($DividersOfRandomNumber as $value) {
     echo $value . ", ";
 }
 
@@ -220,14 +220,118 @@ echo "\n";
 echo "<br>";
 echo "<hr> Task 15 <hr>";
 
-function printStringReturnNumber()
+function printStringReturnNumber(): int
 {
     echo "Если вы видите эту строчку, значит, где-то сработала одинокая функция, которая должна была вернуть какое-то числовое значение";
     return 15;
 }
+
 // don't forget to rename all vars according to lowerCamelCase
 $myNum = printStringReturnNumber();
 echo "\n";
 echo "<br>";
 echo $myNum;
 
+echo "\n";
+echo "<br>";
+echo "<hr> Task 16 <hr>";
+
+function increaseEnthusiasm(string $string): string
+{
+    return $string . "!";
+}
+
+echo increaseEnthusiasm('Praise the Ra');
+
+echo "\n";
+echo "<br>";
+
+function repeatThreeTimes(string $string): string
+{
+    // return str_repeat($string, 3); это был первый вариант, но, мне что-то подсказывает, что это все-таки нужно сделать через цикл
+    $resultString = '';
+    for ($i = 0; $i < 3; $i++) { // забавно, что пхпшторм сам предлагаем мне заменить цикл на функцию....
+        $resultString .= $string;
+    }
+    return $resultString;
+}
+
+echo repeatThreeTimes(increaseEnthusiasm('Praise the Ra'));
+
+echo "\n";
+echo "<br>";
+
+function cut(string $string, int $number = 10): string
+{
+    /*
+     * // На случай, если длина строки окажется меньше,
+     * чем задаваемое число
+     * (иначе посыпятся ошибки,
+     * т.к. пытаемся обраться за границы итерируемого объекта)
+     */
+
+    if (strlen($string) <= $number) {
+        return $string;
+    } else {
+        $cutString = '';
+        for ($i = 0; $i < $number; $i++) {
+            $cutString .= $string[$i];
+        }
+        return $cutString;
+    }
+
+}
+
+echo cut('Praise the Ra', 20);
+
+echo "\n";
+echo "<br>";
+
+$yetAnotherRandomArray = array();
+for ($i = 0; $i < 10; $i++) {
+    $yetAnotherRandomArray[] = rand();
+}
+echo "Случайный массив - ( ";
+foreach ($yetAnotherRandomArray as $value) {
+    echo $value . " ";
+}
+echo ")";
+
+echo "\n";
+echo "<br>";
+
+function printTheArray(array $array, int $length, int $i = 0)
+{
+    if ($i == $length) {
+        echo "\n";
+        echo "<br>";
+        return;
+    }
+    echo $array[$i] . " ";
+    $i++;
+    printTheArray($array, $length, $i);
+}
+
+printTheArray($yetAnotherRandomArray, count($yetAnotherRandomArray));
+
+function digitsCounter(int $number): int
+{
+
+    if ($number < 0) {
+        $number = abs($number);
+    }
+
+    if ($number < 10) {
+        return $number;
+    }
+
+    $stringNumber = $number . '';
+    $sum = intval($stringNumber[0]);
+
+    for ($i = 1; $i < strlen($stringNumber); $i++) {
+        $sum += intval($stringNumber[$i]);
+    }
+    return digitsCounter($sum);
+}
+
+echo digitsCounter(123456);
