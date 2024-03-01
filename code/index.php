@@ -163,23 +163,26 @@ for ($i = 1; $i <= 10; $i++) {
 }
 
 $NotOnlyPositiveArray = array(1, 2, -1, -2, 3, -3);
-echo "Изначальный массив - ";
+$PositiveOnlyArray = array();
+echo "Изначальный массив - ( ";
 foreach ($NotOnlyPositiveArray as &$value) {
     echo $value . " ";
 }
+echo ").";
 
 foreach ($NotOnlyPositiveArray as &$value) {
-    $value = abs($value);
+    $PositiveOnlyArray[] = abs($value);
 }
 unset($value); // разрываем ссылку на $value, чтобы потом не произошлой какой-то гадости
 
 echo "\n";
 echo "<br>";
 
-echo "Изначальный массив - ";
-foreach ($NotOnlyPositiveArray as &$value) {
+echo "Массив с положительными числами изначального массива - ( ";
+foreach ($PositiveOnlyArray as &$value) {
     echo $value . " ";
 }
+echo ").";
 
 echo "\n";
 echo "<br>";
