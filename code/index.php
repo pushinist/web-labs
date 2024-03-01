@@ -300,7 +300,7 @@ echo ")";
 echo "\n";
 echo "<br>";
 
-function printTheArray(array $array, int $length, int $i = 0)
+function printTheArray(array $array, int $length, int $i = 0): void
 {
     if ($i == $length) {
         echo "\n";
@@ -340,7 +340,7 @@ echo "\n";
 echo "<br>";
 echo "<hr> Task 17 <hr>";
 
-function fillArrayByX(array &$array, int $numberOfX)
+function fillArrayByX(array &$array, int $numberOfX): void
 {
     for ($i = 1; $i <= $numberOfX; $i++) {
         $array[] = str_repeat('x', $i);
