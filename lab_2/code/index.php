@@ -1,7 +1,25 @@
 <?php
+function br($flag): void
+{
+    if ($flag == 1) {
+        echo "<br>";
+    }
+}
+
+function Task($number,$flag): void
+{
+    if ($flag == 1) {
+        echo "<hr> Task $number <hr/>";
+    } else {
+        echo "\nTask $number\n";
+    }
+}
+
+$flag = 0; // !!! CHANGE THIS FLAG TO 0 IF YOU ARE RUNNING THIS FILE IN A TERMINAL OTHERWISE LEAVE IT 1 IN CASE YOU ARE RUNNING THIS FILE FROM BROWSER!!!
+
 echo "\n";
-echo "<br>";
-echo "<hr> Task 1 <hr>";
+br($flag);
+Task(1, $flag);
 
 /* Imagine a lot of code here */
 $very_bad_unclear_name = "15 chicken wings";
@@ -15,8 +33,8 @@ $order .= " and let's praise the Kotyonok Ra!";
 echo "\nYour order is: $very_bad_unclear_name";
 
 echo "\n";
-echo "<br>";
-echo "<hr> Task 2 <hr>";
+br($flag);
+Task(2, $flag);
 
 // Today is 1'st of March, so let's make our integer variable like this date!
 $numberOfThisDay = 1;
@@ -27,7 +45,7 @@ look like the same in browser too.
 */
 
 echo "\n";
-echo "<br>";
+br($flag);
 
 
 // TBH I'm really sorry for this name, but it seemed to me really, funny and cool despite the fact it's not.
@@ -35,7 +53,7 @@ $numberThatWasGoingToBeThePiNumberButWeHadToChangeItToAnotherToMakeTwelveGreatAg
 echo $numberThatWasGoingToBeThePiNumberButWeHadToChangeItToAnotherToMakeTwelveGreatAgain;
 
 echo "\n";
-echo "<br>";
+br($flag);
 
 
 echo $numberThatWasGoingToBeThePiNumberButWeHadToChangeItToAnotherToMakeTwelveGreatAgain +
@@ -43,7 +61,7 @@ echo $numberThatWasGoingToBeThePiNumberButWeHadToChangeItToAnotherToMakeTwelveGr
     $numberOfThisDay;
 
 echo "\n";
-echo "<br>";
+br($flag);
 
 $lastMonth = 1187.23;
 $thisMonth = 1089.98;
@@ -52,8 +70,8 @@ $difference = $lastMonth - $thisMonth;
 echo "Я потратил в этом месяце на $difference рубля меньше, чем в предыдущем.";
 
 echo "\n";
-echo "<br>";
-echo "<hr> Task 11 <hr>";
+br($flag);
+Task(11, $flag);
 
 $numLanguages = 4;
 $months = 11;
@@ -63,16 +81,15 @@ echo "$daysPerLanguage - примерно столько дней Мэг тра�
 которых, по какой-то причине, не оказалось самого awesome - PHP.";
 
 echo "\n";
-echo "<br>";
-echo "<hr> Task 12 <hr>";
+br($flag);
+Task(12, $flag);
 
 
 echo 8 ** 2 . " - именно такая разрядность используется в абсолютном большинстве персональных компьютеров.";
 
 echo "\n";
-echo "<br>";
-echo "<hr> Task 13 <hr>";
-
+br($flag);
+Task(13, $flag);
 $myNum = 2024;
 $answer = $myNum;
 $answer += 2;
@@ -84,15 +101,15 @@ echo $answer . " - это переменная answer. Если она равн�
 с тем, чтобы не ошибиться в выполнении последовательного сложения, умножения, вычитания и деления на 2.";
 
 echo "\n";
-echo "<br>";
-echo "<hr> Task 14 <hr>";
+br($flag);
+Task(14, $flag);
 
 $a = 10;
 $b = 3;
 echo $a % $b . " - остаток от деления $a на $b";
 
 echo "\n";
-echo "<br>";
+br($flag);
 
 echo "Делится ли $a на $b без остатка? ";
 if ($a % $b == 0) {
@@ -102,13 +119,13 @@ if ($a % $b == 0) {
 }
 
 echo "\n";
-echo "<br>";
+br($flag);
 
 $st = pow(2, 10);
 echo "Квадратный корень из 245 равен " . sqrt(245);
 
 echo "\n";
-echo "<br>";
+br($flag);
 
 $summa = 0;
 $randomArray = array(4, 2, 5, 19, 13, 0, 10);
@@ -118,26 +135,26 @@ foreach ($randomArray as $value) {
 echo sqrt($summa) . " - это квадратный корень из суммы квадратов элементов массива (4, 2, 5, 19, 13, 0, 10)";
 
 echo "\n";
-echo "<br>";
+br($flag);
 
 echo round(sqrt(379)) . " - квадратный корень из 379, округленный до целого значения. ";
 echo round(sqrt(379), 1) . " - квадратный корень из 379, округленный до десятков. ";
 echo round(sqrt(379), 2) . " - квадратный корень из 379, округленный до сотых. ";
 
 echo "\n";
-echo "<br>";
+br($flag);
 $arrayToCheckWorkOfFloorAndCeilFunction = array("round" => round(sqrt(587)), "ceil" => ceil(sqrt(587)));
 echo $arrayToCheckWorkOfFloorAndCeilFunction["round"] . " < " . $arrayToCheckWorkOfFloorAndCeilFunction["ceil"];
 
 echo "\n";
-echo "<br>";
+br($flag);
 
 $yetAnotherRandomArray = array(4, -2, 5, 19, -130, 0, 10);
 $minMaxArray = array("min" => min($yetAnotherRandomArray), "max" => max($yetAnotherRandomArray));
 echo $minMaxArray["min"] . " - min, " . $minMaxArray["max"] . " - max.";
 
 echo "\n";
-echo "<br>";
+br($flag);
 
 echo rand(1, 100);
 $randomNumbersArray = array();
@@ -152,14 +169,14 @@ for ($i = 0; $i < 10; $i++) {
 //}
 
 echo "\n";
-echo "<br>";
+br($flag);
 
 for ($i = 1; $i <= 10; $i++) {
     $a = rand(1, 100);
     $b = rand(1, 100);
     echo abs($a - $b) . " - модуль разности случайных a = $a и b = $b, итерация $i";
     echo "\n";
-    echo "<br>";
+    br($flag);
 }
 
 $notOnlyPositiveArray = array(1, 2, -1, -2, 3, -3);
@@ -176,7 +193,7 @@ foreach ($notOnlyPositiveArray as $value) {
 unset($value); // разрываем ссылку на $value, чтобы потом не произошлой какой-то гадости
 
 echo "\n";
-echo "<br>";
+br($flag);
 
 echo "Массив с положительными числами изначального массива - ( ";
 foreach ($positiveOnlyArray as &$value) {
@@ -185,7 +202,7 @@ foreach ($positiveOnlyArray as &$value) {
 echo ").";
 
 echo "\n";
-echo "<br>";
+br($flag);
 
 $randomNumber = rand();
 $dividersOfRandomNumber = array();
@@ -202,7 +219,7 @@ foreach ($dividersOfRandomNumber as $value) {
 }
 
 echo "\n";
-echo "<br>";
+br($flag);
 
 
 $yetAnotherArray = array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
@@ -214,11 +231,11 @@ while ($desiredNumber <= 10) {
 }
 echo $i . " - именно столько первых элементов массива нужно сложить, чтобы получить число, больше 10.";
 echo "\n";
-echo "<br>";
+br($flag);
 
 echo "\n";
-echo "<br>";
-echo "<hr> Task 15 <hr>";
+br($flag);
+Task(15, $flag);
 
 function printStringReturnNumber(): int
 {
@@ -229,12 +246,12 @@ function printStringReturnNumber(): int
 // don't forget to rename all vars according to lowerCamelCase upd. i didn't.
 $myNum = printStringReturnNumber();
 echo "\n";
-echo "<br>";
+br($flag);
 echo $myNum;
 
 echo "\n";
-echo "<br>";
-echo "<hr> Task 16 <hr>";
+br($flag);
+Task(16, $flag);
 
 function increaseEnthusiasm(string $string): string
 {
@@ -244,7 +261,7 @@ function increaseEnthusiasm(string $string): string
 echo increaseEnthusiasm('Praise the Ra');
 
 echo "\n";
-echo "<br>";
+br($flag);
 
 function repeatThreeTimes(string $string): string
 {
@@ -259,7 +276,7 @@ function repeatThreeTimes(string $string): string
 echo repeatThreeTimes(increaseEnthusiasm('Praise the Ra'));
 
 echo "\n";
-echo "<br>";
+br($flag);
 
 function cut(string $string, int $number = 10): string
 {
@@ -285,7 +302,7 @@ function cut(string $string, int $number = 10): string
 echo cut('Praise the Ra', 20);
 
 echo "\n";
-echo "<br>";
+br($flag);
 
 $yetAnotherRandomArray = array();
 for ($i = 0; $i < 10; $i++) {
@@ -298,21 +315,21 @@ foreach ($yetAnotherRandomArray as $value) {
 echo ")";
 
 echo "\n";
-echo "<br>";
+br($flag);
 
-function printTheArray(array $array, int $length, int $i = 0): void
+function printTheArray(array $array, int $length, $flag, int $i = 0): void
 {
     if ($i == $length) {
         echo "\n";
-        echo "<br>";
+        br($flag);
         return;
     }
     echo $array[$i] . " ";
     $i++;
-    printTheArray($array, $length, $i);
+    printTheArray($array, $length, $flag, $i);
 }
 
-printTheArray($yetAnotherRandomArray, count($yetAnotherRandomArray));
+printTheArray($yetAnotherRandomArray, count($yetAnotherRandomArray), $flag);
 
 function digitsCounter(int $number): int
 {
@@ -337,8 +354,8 @@ function digitsCounter(int $number): int
 echo digitsCounter(123456);
 
 echo "\n";
-echo "<br>";
-echo "<hr> Task 17 <hr>";
+br($flag);
+Task(17, $flag);
 
 function fillArrayByX(array &$array, int $numberOfX): void
 {
@@ -353,7 +370,7 @@ foreach ($anotherOneArrayWhichImTiredToCount as $value) {
     echo $value . ' ';
 }
 echo "\n";
-echo "<br>";
+br($flag);
 
 function arrayFill($value, int $count): array
 {
@@ -370,7 +387,7 @@ foreach ($yetAnotherArrayWeHaveToFill as $item) {
 }
 
 echo "\n";
-echo "<br>";
+br($flag);
 
 $_2DArray = array(
     array(1, 2, 3),
@@ -392,7 +409,7 @@ function countSumOfElementsIn2DArray(array $_2DArray): int
 echo countSumOfElementsIn2DArray($_2DArray);
 
 echo "\n";
-echo "<br>";
+br($flag);
 
 $counter = 1;
 $arrayWhichIsSupposedToBe2D = array();
@@ -410,7 +427,7 @@ foreach ($arrayWhichIsSupposedToBe2D as $array) {
 }
 
 echo "\n";
-echo "<br>";
+br($flag);
 
 $arrayWithSomeNumbers = array(2, 5, 3, 9);
 
@@ -420,7 +437,7 @@ $result = $firstNumber + $secondNumber;
 echo $result;
 
 echo "\n";
-echo "<br>";
+br($flag);
 
 $user = array('name' => 'Maxim', 'surname' => 'Tsvetkov', 'patronymic' => 'Alexandrovich');
 //foreach ($user as $value) {
@@ -429,7 +446,7 @@ $user = array('name' => 'Maxim', 'surname' => 'Tsvetkov', 'patronymic' => 'Alexa
 echo $user['surname'] . ' ' . $user['name'] . ' ' . $user['patronymic'];
 
 echo "\n";
-echo "<br>";
+br($flag);
 
 $date = array('year' => 2024, 'month' => 3, 'day' => 1);
 $res = '';
@@ -439,7 +456,7 @@ foreach ($date as $value) {
 echo rtrim($res, '-');
 
 echo "\n";
-echo "<br>";
+br($flag);
 
 $arr = ['a', 'b', 'c', 'd', 'e']; // Полагая, что встроенными функциями пользоваться не стоит:
 $count = 0;
@@ -451,12 +468,12 @@ echo $arr[$count - 1] . ', предпоследий - ';
 echo $arr[$count - 2];
 
 echo "\n";
-echo "<br>";
+br($flag);
 
 
 echo "\n";
-echo "<br>";
-echo "<hr> Task 18 <hr>";
+br($flag);
+Task(18, $flag);
 
 // тут я сдаюсь. очень странно, что в этом языке true интерпретируется как 1, а false - как пустая строка.
 // еще более странно, что (по крайней мере, как я искал) скастить эти 1 или пустую строку в полноценные true или false - нельзя.
@@ -475,7 +492,7 @@ if (moreThanTen(6, 5)) {
 }
 echo "\n";
 
-echo "<br>";
+br($flag);
 
 function isEqual(int|float $a, int|float $b): bool
 {
@@ -491,14 +508,14 @@ if (isEqual(5, 5)) {
 }
 
 echo "\n";
-echo "<br>";
+br($flag);
 
 $test = 0;
 
 echo(($test == 0) ? 'верно' : '');
 
 echo "\n";
-echo "<br>";
+br($flag);
 
 
 function sumOfDigits(int $number): int
@@ -528,7 +545,7 @@ if (($age < 10) or ($age > 99)) {
 }
 
 echo "\n";
-echo "<br>";
+br($flag);
 
 $arr = array();
 $numberOfElementsInArray = rand(1, 5);
@@ -542,7 +559,7 @@ foreach ($arr as $item) {
 }
 
 echo "\n";
-echo "<br>";
+br($flag);
 
 $i = 0;
 $sum = 0;
@@ -560,18 +577,18 @@ if ($i == 3) {
 
 
 echo "\n";
-echo "<br>";
-echo "<hr> Task 19 <hr>";
+br($flag);
+Task(19, $flag);
 
 for ($i = 1; $i < 21; $i++) {
     echo str_repeat('x', $i);
     echo "\n";
-    echo "<br>";
+    br($flag);
 }
 
 echo "\n";
-echo "<br>";
-echo "<hr> Task 20 <hr>";
+br($flag);
+Task(20, $flag);
 
 $arr = array();
 $numberOfElementsInArray = rand(1, 5);
@@ -585,14 +602,14 @@ foreach ($arr as $item) {
 }
 
 echo "\n";
-echo "<br>";
+br($flag);
 
 
 $arithmeticMean = array_sum($arr) / count($arr);
 echo $arithmeticMean;
 
 echo "\n";
-echo "<br>";
+br($flag);
 
 // Первый способ посчитать от 1 до 100 - через рекурсию
 function calculateNumbersFrom1ToX(int $x): int
@@ -619,7 +636,7 @@ if (isEqual(calculateNumbersFrom1ToX(100), anotherWayToCalculateNumbersFrom1ToX(
 }
 
 echo "\n";
-echo "<br>";
+br($flag);
 
 $arr = array();
 $numberOfElementsInArray = rand(1, 5);
@@ -633,7 +650,7 @@ foreach ($arr as $item) {
 }
 
 echo "\n";
-echo "<br>";
+br($flag);
 
 $sqrtArray = array_map('sqrt', $arr);
 
@@ -642,7 +659,7 @@ foreach ($sqrtArray as $item) {
 }
 
 echo "\n";
-echo "<br>";
+br($flag);
 
 $keys = range('a', 'z');
 $values = range(1, 26);
@@ -665,7 +682,7 @@ function countSumOfPairOfNumbers(string $number, $i = 0, $sum = 0): int
 }
 
 echo "\n";
-echo "<br>";
+br($flag);
 
 echo countSumOfPairOfNumbers('1234567890');
 
