@@ -1,4 +1,8 @@
 <?php
+
+$flag = 0; // !!! CHANGE THIS FLAG TO 0 IF YOU ARE RUNNING THIS FILE IN A TERMINAL OTHERWISE LEAVE IT 1 IN CASE YOU ARE RUNNING THIS FILE FROM BROWSER!!!
+
+
 function br($flag): void
 {
     if ($flag == 1) {
@@ -14,8 +18,6 @@ function Task($number,$flag): void
         echo "\nTask $number\n";
     }
 }
-
-$flag = 0; // !!! CHANGE THIS FLAG TO 0 IF YOU ARE RUNNING THIS FILE IN A TERMINAL OTHERWISE LEAVE IT 1 IN CASE YOU ARE RUNNING THIS FILE FROM BROWSER!!!
 
 echo "\n";
 br($flag);
