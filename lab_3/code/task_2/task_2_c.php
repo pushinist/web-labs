@@ -5,8 +5,8 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
     $surname = $_POST["surname"];
     $age = $_POST["age"];
     $salary = $_POST["salary"];
-    $nationality = $_POST["loves"];
-    $userData = ['name'=>$name, 'age'=>$age, 'surname'=>$surname, 'salary'=>$salary, 'loves'=>$nationality];
+    $loves = $_POST["loves"];
+    $userData = ['Имя'=>$name, 'Возраст'=>$age, 'Фамилия'=>$surname, 'Зарплата'=>$salary, 'Предпочтения'=>$loves];
     $_SESSION['userData'] = $userData;
     header("Location: show.php");
     exit();
@@ -26,17 +26,13 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
 </head>
 <body>
 <form method="post">
-    <label for="name">Имя:</label>
-    <input type="text" id="name" name="name"><br>
-    <label for="surname">Фамилия:</label>
-    <input type="text" id="surname" name="surname"><br>
-    <label for="age">Возраст:</label>
-    <input type="text" id="age" name="age"><br>
-    <label for="salary">Зарплата:</label>
-    <input type="text" id="salary" name="salary"><br>
-    <label for="loves">Предпочтения:</label>
-    <input type="text" id="loves" name="loves"><br>
-    <input type="submit" value="Отправить данные">
+    <input type="text" name="surname" placeholder="Фамилия">
+    <input type="text" name="name" placeholder="Имя">
+    <input type="text" name="age" placeholder="Возраст">
+    <input type="text" name="salary" placeholder="Зарплата">
+    <input type="text" name="loves" placeholder="Предпочтения">
+
+    <button type="submit">Сохранить</button>
 </form>
 </body>
 </html>
