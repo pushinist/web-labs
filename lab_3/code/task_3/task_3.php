@@ -69,6 +69,5 @@
     ?>
     </tbody>
 </div>
-<a href="index.php"><h2>Return back</h2></a>
 </body>
 </html>
