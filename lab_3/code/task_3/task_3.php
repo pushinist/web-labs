@@ -9,7 +9,7 @@
 </head>
 <body>
 <div style="text-align: center">
-    <h1>Online_Shop</h1>
+    <h1>AVITO ONLINE</h1>
     <form action="display.php" method="post">
         <label for="email">Email</label>
         <label>
