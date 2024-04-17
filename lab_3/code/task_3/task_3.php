@@ -10,7 +10,7 @@
 <body>
 <div style="text-align: center">
     <h1>AVITO ONLINE</h1>
-    <form action="display.php" method="post">
+    <form action="display.php" method="post" target="_blank">
         <label for="email">Email</label>
         <label>
             <input type="email" name="email" required>
@@ -31,7 +31,7 @@
         <label>
             <textarea name="text" rows="10" cols="56" required></textarea>
         </label><br>
-        <button type="submit">Confirm</button>
+        <button type="submit" >Confirm</button>
     </form>
     <div id="table" style="text-align: center">
         <table>
