@@ -10,7 +10,7 @@
 <body>
 <div style="text-align: center">
     <h1>AVITO ONLINE</h1>
-    <form action="display.php" method="post" target="_blank">
+    <form action="display.php" method="post">
         <label for="email">Email</label>
         <label>
             <input type="email" name="email" required>
@@ -41,33 +41,48 @@
                 <th>Title</th>
                 <th>Category</th>
                 <th>Description</th>
-
+</tr>
+</thead>
     </div>
     <tbody>
     <?php
-    $categories = ["laptop", "smartphone", "pc"];
-    foreach ($categories as $category) {
-        $dir = "./categories/$category";
-        $fileNames = scandir($dir, SCANDIR_SORT_ASCENDING);
-        foreach ($fileNames as $fileName) {
-            if ($fileName !== '.' && $fileName !== '..') {
+    require 'vendor/autoload.php';
+    $client = new \Google_Client();
+    $client->setApplicationName('AVITO ONLINE announcements');
+    $client->setScopes(['https://www.googleapis.com/auth/spreadsheets']);
+    $client->setAccessType('offline');
+    $path = 'credentials.json';
+    $client->setAuthConfig($path);
+    
+    $service = new \Google_Service_Sheets($client);
+
+    $spreadsheetId = '1YjPHk_M1yt4rDjwSC2Gw22Fbw64JRllw2M-LvZPgP38';
+    $spreadsheet = $service->spreadsheets->get($spreadsheetId);
+    $sheets = $spreadsheet->getSheets();
+
+
+    foreach ($sheets as $sheet) {
+        $sheetTitle = $sheet->getProperties()->getTitle();
+        $range = $sheetTitle;
+
+        $response = $service->spreadsheets_values->get($spreadsheetId, $range);
+        $values = $response->getValues();
+
+
+        if (!empty($values)) {
+            $isFirstRow = true; 
+            foreach ($values as $row) {
                 echo '<tr>';
-                $filePath = $dir . "/" . $fileName;
-                $file = fopen($filePath, "r");
-                if ($file) {
-                    $fileData = file($filePath);
-                    foreach ($fileData as $data) {
-                        $values = explode(":", $data);
-                        echo "<td>" . $values[1] . "</td>";
-                    }
-                    fclose($file);
+                foreach ($row as $cell) {
+                        echo '<td>' . htmlspecialchars($cell) . '</td>';
                 }
                 echo '</tr>';
             }
         }
     }
-    ?>
-    </tbody>
+?>
+</tbody>
+</table>
 </div>
 </body>
 </html>
