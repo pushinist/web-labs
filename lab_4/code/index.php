@@ -1,3 +1,23 @@
+<?php
+    $mysqli = new mysqli('db', 'root', 'helloworld', 'web');
+    if (mysqli_connect_errno()) {
+    printf("Connect failed: %s\n", mysqli_connect_error());
+    exit;
+    }
+
+
+    $arr = [];
+    if ($result = $mysqli->query("SELECT * FROM ad ORDER BY created DESC")) {
+    while ($row = $result->fetch_assoc()) {
+    array_push($arr, $row);
+    }
+    $result->close();
+    }
+    $mysqli->close();
+?>
+
+
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -45,44 +65,18 @@
 </thead>
     </div>
     <tbody>
-    <?php
-    require 'vendor/autoload.php';
-    $client = new \Google_Client();
-    $client->setApplicationName('AVITO ONLINE announcements');
-    $client->setScopes(['https://www.googleapis.com/auth/spreadsheets']);
-    $client->setAccessType('offline');
-    $path = 'credentials.json';
-    $client->setAuthConfig($path);
-    
-    $service = new \Google_Service_Sheets($client);
 
-    $spreadsheetId = '1YjPHk_M1yt4rDjwSC2Gw22Fbw64JRllw2M-LvZPgP38';
-    $spreadsheet = $service->spreadsheets->get($spreadsheetId);
-    $sheets = $spreadsheet->getSheets();
-
-
-    foreach ($sheets as $sheet) {
-        $sheetTitle = $sheet->getProperties()->getTitle();
-        $range = $sheetTitle;
-
-        $response = $service->spreadsheets_values->get($spreadsheetId, $range);
-        $values = $response->getValues();
-
-
-        if (!empty($values)) {
-            $isFirstRow = true; 
-            foreach ($values as $row) {
-                echo '<tr>';
-                foreach ($row as $cell) {
-                        echo '<td>' . htmlspecialchars($cell) . '</td>';
-                }
-                echo '</tr>';
-            }
-        }
-    }
+<?php
+    foreach ($arr as $ad):
+        echo "<tr>";
+        echo "<td>" . ($ad['email']) . "</td>";
+        echo "<td>" . ($ad['title']) . "</td>";
+        echo "<td>" . ($ad['description']) . "</td>";
+        echo "<td>" . ($ad['category']) . "</td>";
+        echo "</tr>";
+        endforeach;
 ?>
 </tbody>
-</table>
 </div>
 </body>
 </html>
